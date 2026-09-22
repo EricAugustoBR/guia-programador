@@ -1,0 +1,312 @@
+/* ==========================================================================
+   DEVELOPMENT CHECKLIST & RULES STYLES
+   ========================================================================== */
+
+.rules-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  width: 100%;
+}
+
+/* --- PROGRESS TRACKER HEADER --- */
+.checklist-progress-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checklist-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.checklist-progress-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checklist-progress-stat {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+}
+
+.checklist-progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background: var(--bg-surface-elevated);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.checklist-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-primary), #10b981);
+  border-radius: var(--radius-full);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checklist-celebrate-banner {
+  display: none;
+  background: var(--color-success-subtle);
+  border: 1px solid var(--color-success);
+  color: var(--color-success);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.checklist-celebrate-banner.is-active {
+  display: block;
+}
+
+/* --- RULE CARD --- */
+.rule-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.rule-card:hover {
+  border-color: var(--border-medium);
+}
+
+.rule-card.is-checked {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.rule-header {
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+
+.rule-checkbox-btn {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-medium);
+  background: var(--bg-surface-elevated);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition: all var(--transition-fast);
+  margin-top: 2px;
+}
+
+.rule-checkbox-btn:hover {
+  border-color: var(--brand-primary);
+}
+
+.rule-card.is-checked .rule-checkbox-btn {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: #ffffff;
+}
+
+.rule-title-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rule-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rule-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.rule-card.is-checked .rule-name {
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+
+.rule-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge-critica {
+  background: var(--color-danger-subtle);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+}
+
+.badge-essencial {
+  background: var(--color-warning-subtle);
+  color: var(--color-warning);
+  border: 1px solid var(--color-warning);
+}
+
+.badge-recomendada {
+  background: var(--brand-primary-subtle);
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-primary);
+}
+
+/* Rule Body */
+.rule-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rule-concept-box {
+  background: var(--bg-surface-elevated);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--brand-primary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.rule-concept-box strong {
+  color: var(--text-primary);
+}
+
+.rule-concept-box p {
+  color: var(--text-secondary);
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
+}
+
+/* Code Comparison (Bad vs Good) */
+.rule-code-comparison {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .rule-code-comparison {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.code-box {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-box-header {
+  padding: 0.4rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.code-box-bad {
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.05);
+}
+.code-box-bad .code-box-header {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--color-danger);
+}
+
+.code-box-good {
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.05);
+}
+.code-box-good .code-box-header {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--color-success);
+}
+
+.code-box pre {
+  padding: 0.75rem;
+  margin: 0;
+  color: #cbd5e1;
+  background: #090d16;
+  overflow-x: auto;
+  line-height: 1.4;
+  flex: 1;
+}
+
+/* Rule Footer Advice */
+.rule-advice-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-subtle);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .rule-advice-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.advice-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.advice-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+}
+
+.advice-label.label-tip {
+  color: var(--brand-primary);
+}
+
+.advice-label.label-tool {
+  color: var(--color-info);
+}
+
+.advice-text {
+  color: var(--text-secondary);
+  line-height: 1.4;
+}

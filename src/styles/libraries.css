@@ -1,0 +1,369 @@
+/* ==========================================================================
+   LIBRARIES & COMPONENT SETS STYLES
+   ========================================================================== */
+
+/* --- ROSETTA STONE STUDIO (COMPARADOR DE PARADIGMAS) --- */
+.rosetta-studio-section {
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.rosetta-studio-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.rosetta-studio-header {
+  padding: 1.5rem;
+  background: var(--bg-surface-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.rosetta-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+.rosetta-tabs-bar {
+  padding: 0.85rem 1.5rem;
+  background: var(--bg-surface-hover);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.rosetta-tab-btn {
+  white-space: nowrap;
+  padding: 0.45rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.rosetta-tab-btn:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border-color: var(--brand-primary);
+}
+
+.rosetta-tab-btn.is-active {
+  background: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-primary);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
+/* ROSETTA WORKSPACE GRID */
+.rosetta-workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  min-height: 480px;
+}
+
+@media (max-width: 950px) {
+  .rosetta-workspace-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PREVIEW / PHILOSOPHY COLUMN */
+.rosetta-preview-col {
+  padding: 2rem;
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: var(--bg-surface);
+}
+
+@media (max-width: 950px) {
+  .rosetta-preview-col {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+}
+
+.rosetta-paradigm-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rosetta-paradigm-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: var(--brand-primary-subtle);
+  color: var(--brand-primary);
+}
+
+.rosetta-paradigm-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.rosetta-philosophy-box {
+  background: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.rosetta-live-stage {
+  padding: 2.5rem 1.5rem;
+  background: var(--bg-app);
+  border: 1px dashed var(--border-medium);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rosetta-pros-cons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .rosetta-pros-cons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pros-list, .cons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pros-title {
+  color: var(--color-success);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.cons-title {
+  color: var(--color-danger);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.pros-item, .cons-item {
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* CODE SNIPPET COLUMN */
+.rosetta-code-col {
+  padding: 1.75rem;
+  background: #0d121f;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.rosetta-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rosetta-lang-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.rosetta-code-pre {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  overflow: auto;
+  white-space: pre;
+  padding-right: 0.5rem;
+}
+
+/* --- DECISION MATRIX SECTION --- */
+.decision-matrix-section {
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.decision-matrix-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  overflow-x: auto;
+  box-shadow: var(--shadow-md);
+}
+
+.matrix-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.matrix-subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  text-align: left;
+}
+
+.matrix-table th {
+  padding: 0.75rem 1rem;
+  background: var(--bg-surface-elevated);
+  color: var(--text-secondary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-medium);
+  white-space: nowrap;
+}
+
+.matrix-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.matrix-table tr:hover td {
+  background: var(--bg-surface-hover);
+}
+
+.badge-arch-rsc-yes {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+.badge-arch-rsc-no {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+.badge-arch-rsc-partial {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+.badge-lockin-low {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--brand-primary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+.badge-lockin-high {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+/* ARCHITECTURE PILLS IN CONTROL CARDS */
+.arch-summary-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.7rem;
+}
+
+.arch-pill {
+  background: var(--bg-surface-hover);
+  color: var(--text-secondary);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.badge-card-rank {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+  color: var(--brand-primary);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}

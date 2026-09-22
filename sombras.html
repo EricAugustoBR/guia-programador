@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia do Programador — Sombras & Iluminação (CSS Box Shadows & Luz)</title>
+    <meta
+      name="description"
+      content="Guia interativo de memorização e aprendizado de técnicas de sombras e iluminação em CSS: anatomia dos 5 valores, sombras em camadas, rim light, elevação e glow."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="header-inner">
+        <a href="./index.html" class="brand" aria-label="Página Inicial do Guia do Programador">
+          <div class="brand-icon">GP</div>
+          <div>
+            <div class="brand-title">Guia do Programador</div>
+          </div>
+          <span class="brand-badge">Sombras & Luz</span>
+        </a>
+
+        <!-- Navegação entre Páginas -->
+        <nav class="nav-page-tabs" aria-label="Páginas do Guia">
+          <a href="./index.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            Controles UI/UX
+          </a>
+          <a href="./grids-tables.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+            Grids & Tabelas
+          </a>
+          <a href="./anatomia.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Anatomia & Técnicas
+          </a>
+          <a href="./regras.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            Checklist de Regras
+          </a>
+          <a href="./sites.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            Sites de Referência
+          </a>
+          <a href="./solid.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+            Princípios S.O.L.I.D.
+          </a>
+          <a href="./sombras.html" class="nav-page-tab is-active" aria-current="page">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2"/>
+              <path d="M12 20v2"/>
+              <path d="m4.93 4.93 1.41 1.41"/>
+              <path d="m17.66 17.66 1.41 1.41"/>
+              <path d="M2 12h2"/>
+              <path d="M20 12h2"/>
+              <path d="m6.34 17.66-1.41 1.41"/>
+              <path d="m19.07 4.93-1.41 1.41"/>
+            </svg>
+            Sombras & Iluminação
+          </a>
+          <a href="./bibliotecas.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+            Conjuntos de Componentes
+          </a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            type="button"
+            id="theme-toggle-btn"
+            class="theme-toggle-btn"
+            aria-label="Alternar tema claro ou escuro"
+          >
+            <!-- SVG injetado via TypeScript -->
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+        </svg>
+        Física Óptica & Iluminação de Interfaces
+      </div>
+
+      <h1 class="hero-title">Técnicas de Sombras & Iluminação em CSS</h1>
+      <p class="hero-subtitle">
+        Aprenda a dominar <strong>box-shadow</strong>, <strong>inset</strong>, sombras compostas em camadas, elevação no eixo Z,
+        bordas iluminadas (rim light estilo Apple/Linear) e sombras coloridas rebatidas. Pare de chutar valores e compreenda a física da luz na UI.
+      </p>
+
+      <div>
+        <a
+          href="https://www.youtube.com/watch?v=6Ii10AeLosY"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="video-reference"
+          title="Ver tutorial original no YouTube"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: #ef4444;">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span>Baseado no tutorial: <strong>#25. Create Stunning Box Shadows in CSS</strong></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Interactive Shadow Studio / Playground -->
+    <section class="shadow-studio-section" aria-label="Laboratório Interativo de Sombras">
+      <div class="shadow-studio-card">
+        <div class="shadow-studio-header">
+          <div class="studio-title-group">
+            <div class="studio-icon-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="studio-title">Shadow & Light Studio</h2>
+              <p class="studio-subtitle">Manipule os 5 parâmetros ópticos em tempo real e teste presets profissionais com 1 clique.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Presets Rápidos -->
+        <div class="studio-presets-bar" id="studio-presets-list" aria-label="Presets rápidos de sombra">
+          <!-- Injetado via TypeScript -->
+        </div>
+
+        <!-- Workspace Grid -->
+        <div class="shadow-studio-grid">
+          <!-- Coluna de Controles -->
+          <div class="studio-controls-col">
+            <!-- X Offset -->
+            <div class="control-group">
+              <div class="control-header">
+                <span>Offset Horizontal (X)</span>
+                <span class="control-val-badge" id="val-x">0px</span>
+              </div>
+              <input type="range" id="slider-x" class="slider-input" min="-50" max="50" value="0" />
+            </div>
+
+            <!-- Y Offset -->
+            <div class="control-group">
+              <div class="control-header">
+                <span>Offset Vertical (Y)</span>
+                <span class="control-val-badge" id="val-y">8px</span>
+              </div>
+              <input type="range" id="slider-y" class="slider-input" min="-50" max="50" value="8" />
+            </div>
+
+            <!-- Blur -->
+            <div class="control-group">
+              <div class="control-header">
+                <span>Desfoque / Suavidade (Blur)</span>
+                <span class="control-val-badge" id="val-blur">24px</span>
+              </div>
+              <input type="range" id="slider-blur" class="slider-input" min="0" max="80" value="24" />
+            </div>
+
+            <!-- Spread -->
+            <div class="control-group">
+              <div class="control-header">
+                <span>Expansão / Retração (Spread)</span>
+                <span class="control-val-badge" id="val-spread">0px</span>
+              </div>
+              <input type="range" id="slider-spread" class="slider-input" min="-25" max="50" value="0" />
+            </div>
+
+            <!-- Color & Opacity -->
+            <div class="control-group">
+              <div class="control-header">
+                <span>Cor da Sombra & Opacidade</span>
+                <span class="control-val-badge" id="val-opacity">35%</span>
+              </div>
+              <div class="color-controls-row">
+                <div class="color-picker-wrapper">
+                  <input type="color" id="color-picker" class="color-picker-input" value="#000000" title="Escolha a tonalidade base" />
+                </div>
+                <input type="range" id="slider-opacity" class="slider-input" min="0" max="100" value="35" title="Opacidade da sombra" />
+              </div>
+            </div>
+
+            <!-- Inset Toggle -->
+            <div>
+              <label class="inset-checkbox-label" for="checkbox-inset">
+                <input type="checkbox" id="checkbox-inset" class="inset-checkbox-input" />
+                <span>Sombra Interna (Palavra-chave <code>inset</code>)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Coluna de Visualização / Palco -->
+          <div class="studio-stage-col">
+            <div class="studio-canvas-area">
+              <div class="studio-target-box" id="studio-target-box">
+                <div style="font-size: 1.5rem;">💡</div>
+                <div class="target-box-title">Caixa Alvo</div>
+                <div class="target-box-sub">Iluminação em tempo real</div>
+              </div>
+            </div>
+
+            <!-- Barra de Código CSS -->
+            <div class="studio-code-box">
+              <div class="studio-code-text" id="studio-code-text">box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.35);</div>
+              <button type="button" class="btn-copy-studio" id="btn-copy-studio" title="Copiar código CSS gerado">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                <span>Copiar CSS</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter & Search Section -->
+    <section class="filter-section" aria-label="Filtro de Técnicas">
+      <div class="search-wrapper">
+        <span class="search-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </span>
+        <input
+          type="search"
+          id="search-input"
+          class="search-input"
+          placeholder="Pesquisar técnicas (ex: inset, camadas, lift, rim light, glow, neumorphism)..."
+          autocomplete="off"
+        />
+      </div>
+
+      <nav class="category-nav" id="category-pills" aria-label="Filtro por Categoria">
+        <!-- Injetado via TypeScript -->
+      </nav>
+
+      <div style="text-align: center; font-size: 0.8125rem; color: var(--text-muted);" id="results-count">
+        Carregando técnicas de sombra e iluminação...
+      </div>
+    </section>
+
+    <!-- Main Grid Content -->
+    <main class="main-content">
+      <div class="controls-grid" id="shadows-grid">
+        <!-- Injetado dinamicamente via TypeScript -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <div><strong>Guia do Programador</strong> — Sombras, Iluminação & Profundidade Front-End</div>
+        <div>Foco em física óptica, CSS nativo modular, tipagem estrita e memorização ativa.</div>
+        <div class="footer-links">
+          <a href="./index.html" class="footer-link">Controles UI/UX</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./grids-tables.html" class="footer-link">Grids & Tabelas</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./anatomia.html" class="footer-link">Anatomia & Técnicas</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./regras.html" class="footer-link">Checklist de Regras</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./sites.html" class="footer-link">Sites de Referência</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./solid.html" class="footer-link">Princípios S.O.L.I.D.</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./sombras.html" class="footer-link">Sombras & Iluminação</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./bibliotecas.html" class="footer-link">Conjuntos de Componentes</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="#" class="footer-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Voltar ao Topo</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botão Flutuante Voltar ao Topo -->
+    <button type="button" id="back-to-top" class="btn-back-top" title="Voltar ao Topo" aria-label="Voltar ao Topo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="12" y1="19" x2="12" y2="5"/>
+        <polyline points="5 12 12 5 19 12"/>
+      </svg>
+    </button>
+
+    <!-- App Entry Point -->
+    <script type="module" src="/src/shadows-main.ts"></script>
+  </body>
+</html>

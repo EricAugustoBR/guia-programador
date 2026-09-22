@@ -1,0 +1,329 @@
+/* ==========================================================================
+   SHADOWS & LIGHTING STUDIO STYLES
+   ========================================================================== */
+
+/* --- SHADOW STUDIO PLAYGROUND CONTAINER --- */
+.shadow-studio-section {
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.shadow-studio-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.shadow-studio-header {
+  padding: 1.5rem;
+  background: var(--bg-surface-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.studio-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.studio-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #f59e0b, #ec4899);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+}
+
+.studio-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.studio-subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+/* --- PRESETS BAR --- */
+.studio-presets-bar {
+  padding: 1rem 1.5rem;
+  background: var(--bg-surface-hover);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.preset-pill-btn {
+  white-space: nowrap;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.preset-pill-btn:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border-color: var(--brand-primary);
+}
+
+.preset-pill-btn.is-active {
+  background: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-primary);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
+/* --- STUDIO WORKSPACE (CONTROLS + STAGE) --- */
+.shadow-studio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  min-height: 480px;
+}
+
+@media (max-width: 900px) {
+  .shadow-studio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CONTROLS COLUMN */
+.studio-controls-col {
+  padding: 1.75rem;
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--bg-surface);
+}
+
+@media (max-width: 900px) {
+  .studio-controls-col {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.control-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.control-val-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--brand-primary);
+  background: var(--brand-primary-subtle);
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.slider-input {
+  width: 100%;
+  accent-color: var(--brand-primary);
+  cursor: pointer;
+  height: 6px;
+  border-radius: var(--radius-full);
+}
+
+.color-controls-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.color-picker-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-picker-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.color-picker-input::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+.color-picker-input::-webkit-color-swatch {
+  border-radius: calc(var(--radius-md) - 2px);
+  border: none;
+}
+
+.inset-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+  margin-top: 0.5rem;
+}
+
+.inset-checkbox-input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-primary);
+  cursor: pointer;
+}
+
+/* STAGE & PREVIEW COLUMN */
+.studio-stage-col {
+  padding: 1.75rem;
+  background: var(--bg-app);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.studio-canvas-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  padding: 2rem;
+  position: relative;
+}
+
+.studio-target-box {
+  width: 200px;
+  height: 140px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1rem;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.target-box-title {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+
+.target-box-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* CODE SNIPPET BAR IN STUDIO */
+.studio-code-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.studio-code-text {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--brand-primary);
+  overflow-x: auto;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.btn-copy-studio {
+  background: var(--brand-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-copy-studio:hover {
+  background: var(--brand-primary-hover);
+}
+
+/* --- STAGE INTERACTIVE BUTTONS & PILLS --- */
+.stage-btn-pill {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface-elevated);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.stage-btn-pill:hover {
+  border-color: var(--brand-primary);
+  color: var(--text-primary);
+}
+
+.stage-btn-pill.is-active {
+  background: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-primary);
+}
