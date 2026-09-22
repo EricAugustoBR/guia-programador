@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia do Programador — Anatomia do Site & Técnicas de Front-End</title>
+    <meta
+      name="description"
+      content="Guia visual de macro-estruturas de páginas (Hero, Header, Bento Grid, Footer) e técnicas modernas de front-end (Timelines, Glassmorphism, Infinite Marquee)."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="./assets/anatomia-CoxAYFZc.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/main-CvY94YZ6.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-BTVZp8KM.css">
+  </head>
+  <body>
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="header-inner">
+        <a href="./index.html" class="brand" aria-label="Página Inicial do Guia do Programador">
+          <div class="brand-icon">GP</div>
+          <div>
+            <div class="brand-title">Guia do Programador</div>
+          </div>
+          <span class="brand-badge">Anatomia & Técnicas</span>
+        </a>
+
+        <!-- Navegação entre Páginas -->
+        <nav class="nav-page-tabs" aria-label="Páginas do Guia">
+          <a href="./index.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            Controles UI/UX
+          </a>
+          <a href="./grids-tables.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+            Grids & Tabelas
+          </a>
+          <a href="./anatomia.html" class="nav-page-tab is-active" aria-current="page">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Anatomia & Técnicas
+          </a>
+          <a href="./regras.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            Checklist de Regras
+          </a>
+          <a href="./sites.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            Sites de Referência
+          </a>
+          <a href="./solid.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+            Princípios S.O.L.I.D.
+          </a>
+          <a href="./sombras.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2"/>
+              <path d="M12 20v2"/>
+              <path d="m4.93 4.93 1.41 1.41"/>
+              <path d="m17.66 17.66 1.41 1.41"/>
+              <path d="M2 12h2"/>
+              <path d="M20 12h2"/>
+              <path d="m6.34 17.66-1.41 1.41"/>
+              <path d="m19.07 4.93-1.41 1.41"/>
+            </svg>
+            Sombras & Iluminação
+          </a>
+          <a href="./bibliotecas.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+            Conjuntos de Componentes
+          </a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            type="button"
+            id="theme-toggle-btn"
+            class="theme-toggle-btn"
+            aria-label="Alternar tema claro ou escuro"
+          >
+            <!-- SVG injetado via TypeScript -->
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        Estruturas de Páginas & Técnicas Visuais
+      </div>
+
+      <h1 class="hero-title">Partes do Site & Técnicas Front-End</h1>
+      <p class="hero-subtitle">
+        Aprenda a anatomia completa de um site moderno (Hero, Bento Grid, Pricing, FAQ) e as técnicas de layout mais utilizadas em interfaces de ponta, como <strong>Timelines</strong>, <strong>Glassmorphism</strong> e <strong>Infinite Marquees</strong>.
+      </p>
+
+      <div>
+        <a
+          href="https://www.youtube.com/watch?v=EcbgbKtOELY"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="video-reference"
+          title="Ver referência no YouTube"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: #ef4444;">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span>Padrões de Layout & Anatomia Web</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Filter & Search Section -->
+    <section class="filter-section" aria-label="Filtro de Técnicas">
+      <div class="search-wrapper">
+        <span class="search-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </span>
+        <input
+          type="search"
+          id="search-input"
+          class="search-input"
+          placeholder="Pesquisar por técnicas (ex: timeline, hero, bento grid, glass, pricing)..."
+          autocomplete="off"
+        />
+      </div>
+
+      <nav class="category-nav" id="category-pills" aria-label="Filtro por Categoria">
+        <!-- Injetado via TypeScript -->
+      </nav>
+
+      <div style="text-align: center; font-size: 0.8125rem; color: var(--text-muted);" id="results-count">
+        Carregando técnicas e estruturas...
+      </div>
+    </section>
+
+    <!-- Main Grid Content -->
+    <main class="main-content">
+      <div class="controls-grid" id="techniques-grid">
+        <!-- Injetado dinamicamente via TypeScript -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <div><strong>Guia do Programador</strong> — Anatomia do Site & Técnicas de Front-End Moderno</div>
+        <div>Foco em código nativo, tipagem com TypeScript e memorização ativa.</div>
+        <div class="footer-links">
+          <a href="./index.html" class="footer-link">Controles UI/UX</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./grids-tables.html" class="footer-link">Grids & Tabelas</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./anatomia.html" class="footer-link">Anatomia & Técnicas</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./regras.html" class="footer-link">Checklist de Regras</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./sites.html" class="footer-link">Sites de Referência</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./solid.html" class="footer-link">Princípios S.O.L.I.D.</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./sombras.html" class="footer-link">Sombras & Iluminação</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./bibliotecas.html" class="footer-link">Conjuntos de Componentes</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="#" class="footer-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Voltar ao Topo</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botão Flutuante Voltar ao Topo -->
+    <button type="button" id="back-to-top" class="btn-back-top" title="Voltar ao Topo" aria-label="Voltar ao Topo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="12" y1="19" x2="12" y2="5"/>
+        <polyline points="5 12 12 5 19 12"/>
+      </svg>
+    </button>
+
+    <!-- App Entry Point -->
+  </body>
+</html>
