@@ -13,7 +13,8 @@ export default defineConfig({
         sites: resolve(import.meta.dirname, 'sites.html'),
         solid: resolve(import.meta.dirname, 'solid.html'),
         sombras: resolve(import.meta.dirname, 'sombras.html'),
-        bibliotecas: resolve(import.meta.dirname, 'bibliotecas.html')
+        bibliotecas: resolve(import.meta.dirname, 'bibliotecas.html'),
+        auditoria: resolve(import.meta.dirname, 'auditoria.html')
       }
     }
   }

@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guia do Programador — Princípios S.O.L.I.D. para Iniciantes</title>
+    <title>Guia do Programador — Manual de Auditoria de Sistemas</title>
     <meta
       name="description"
-      content="Aprenda os 5 princípios S.O.L.I.D. com analogias da vida real, exemplos práticos comparativos em TypeScript, armadilhas comuns e quiz interativo para iniciantes em informática."
+      content="Guia completo de auditoria de software: O que auditar (8 prompts prontos para IA) e Como auditar (RBAC, qualidade estática, SOLID, imutabilidade DDD, cascata e fluxo reverso)."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/auditoria.css" />
   </head>
   <body>
     <!-- App Header -->
@@ -25,7 +26,7 @@
           <div>
             <div class="brand-title">Guia do Programador</div>
           </div>
-          <span class="brand-badge">S.O.L.I.D.</span>
+          <span class="brand-badge">Auditoria</span>
         </a>
 
         <!-- Navegação entre Páginas -->
@@ -65,11 +66,11 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/>
               <line x1="2" y1="12" x2="22" y2="12"/>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/>
             </svg>
             Sites de Referência
           </a>
-          <a href="./solid.html" class="nav-page-tab is-active" aria-current="page">
+          <a href="./solid.html" class="nav-page-tab">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polygon points="12 2 2 7 12 12 22 7 12 2"/>
               <polyline points="2 17 12 22 22 17"/>
@@ -99,7 +100,7 @@
             </svg>
             Conjuntos de Componentes
           </a>
-          <a href="./auditoria.html" class="nav-page-tab">
+          <a href="./auditoria.html" class="nav-page-tab is-active" aria-current="page">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
@@ -124,94 +125,56 @@
     <section class="hero">
       <div class="hero-tag">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
-        Arquitetura Limpa & Boas Práticas Sem Jargões
+        Conformidade, Resiliência & Segurança
       </div>
 
-      <h1 class="hero-title">Princípios S.O.L.I.D. Explicados para Iniciantes</h1>
+      <h1 class="hero-title">Manual de Auditoria do Sistema</h1>
       <p class="hero-subtitle">
-        Entenda de verdade o que significa cada letra do acrônimo S.O.L.I.D. com analogias da vida real
-        (como cozinheiros, tomadas e controles remotos), exemplos práticos comparativos em TypeScript e desafios para fixar o aprendizado.
+        Descubra <strong>O Que Auditar</strong> com 8 prompts especializados prontos para copiar e utilizar na sua IA, 
+        e domine <strong>Como Auditar</strong> com regras de ouro para RBAC, checklist estático unificado, princípios SOLID, 
+        imutabilidade em DDD e prevenção de regressão de deleção.
       </p>
     </section>
 
     <!-- Main Content -->
-    <main class="solid-container">
-      <!-- Quick Acronym Strip -->
-      <nav class="solid-acronym-strip" aria-label="Navegação rápida pelos 5 princípios">
-        <div class="acronym-card" data-letter="S" role="button" tabindex="0">
-          <div class="acronym-badge acronym-badge-s">S</div>
-          <div>
-            <div class="acronym-info-letter">Single Responsibility</div>
-            <div class="acronym-info-desc">Responsabilidade Única</div>
-          </div>
-        </div>
-
-        <div class="acronym-card" data-letter="O" role="button" tabindex="0">
-          <div class="acronym-badge acronym-badge-o">O</div>
-          <div>
-            <div class="acronym-info-letter">Open / Closed</div>
-            <div class="acronym-info-desc">Aberto / Fechado</div>
-          </div>
-        </div>
-
-        <div class="acronym-card" data-letter="L" role="button" tabindex="0">
-          <div class="acronym-badge acronym-badge-l">L</div>
-          <div>
-            <div class="acronym-info-letter">Liskov Substitution</div>
-            <div class="acronym-info-desc">Substituição de Liskov</div>
-          </div>
-        </div>
-
-        <div class="acronym-card" data-letter="I" role="button" tabindex="0">
-          <div class="acronym-badge acronym-badge-i">I</div>
-          <div>
-            <div class="acronym-info-letter">Interface Segregation</div>
-            <div class="acronym-info-desc">Segregação de Interfaces</div>
-          </div>
-        </div>
-
-        <div class="acronym-card" data-letter="D" role="button" tabindex="0">
-          <div class="acronym-badge acronym-badge-d">D</div>
-          <div>
-            <div class="acronym-info-letter">Dependency Inversion</div>
-            <div class="acronym-info-desc">Inversão de Dependência</div>
-          </div>
-        </div>
-      </nav>
-
+    <main class="audit-container">
       <!-- Progress Tracking Card -->
-      <section class="solid-progress-card" aria-label="Progresso de Aprendizado dos Princípios">
-        <div class="solid-progress-header">
-          <div class="solid-progress-title">
+      <section class="audit-progress-card" aria-label="Progresso de Auditoria do Sistema">
+        <div class="audit-progress-header">
+          <div class="audit-progress-title">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--brand-primary);">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
               <polyline points="22 4 12 14.01 9 11.01"/>
             </svg>
-            <span>Seu Progresso de Domínio do S.O.L.I.D.</span>
+            <span>Seu Progresso de Auditoria e Conformidade</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <span class="solid-progress-stat" id="progress-stat">0 de 5 dominados (0%)</span>
+            <span class="audit-progress-stat" id="progress-stat">0 de 27 verificados (0%)</span>
             <button
               type="button"
-              id="btn-reset-mastered"
+              id="btn-reset-audited"
               class="ui-btn ui-btn-ghost"
               style="font-size: 0.75rem; padding: 0.2rem 0.5rem;"
-              title="Zerar princípios dominados"
+              title="Zerar itens auditados"
             >
               Zerar
             </button>
           </div>
         </div>
 
-        <div class="solid-progress-bar-bg">
-          <div class="solid-progress-bar-fill" id="progress-bar-fill" style="width: 0%;"></div>
+        <div class="audit-progress-bar-bg">
+          <div class="audit-progress-bar-fill" id="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+
+        <div class="audit-celebrate-banner" id="celebrate-banner">
+          🛡️ <strong>Parabéns! Auditoria Completa Concluída!</strong> Sua base de código passou por todos os testes de conformidade, segurança, integridade de dados e boas práticas de arquitetura.
         </div>
       </section>
 
-      <!-- Toolbar: Search & Filter Pills -->
-      <section class="solid-toolbar" aria-label="Busca e Filtro de Princípios">
+      <!-- Toolbar: Search & Category Pills -->
+      <section class="audit-toolbar" aria-label="Busca e Filtro de Tópicos">
         <div class="search-wrapper" style="max-width: 100%;">
           <span class="search-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -223,45 +186,63 @@
             type="search"
             id="search-input"
             class="search-input"
-            placeholder="Pesquisar princípios (ex: cozinheiro, tomada, liskov, banco, aberto, fax)..."
+            placeholder="Pesquisar auditorias (ex: rbac, idor, n+1, cascade, prompt, solid, estorno, imutabilidade)..."
             autocomplete="off"
           />
         </div>
 
-        <nav class="solid-pills-nav" id="solid-filter-pills" aria-label="Filtro de Letra">
+        <nav class="audit-pills-nav" id="audit-category-pills" aria-label="Filtro de Categoria">
           <!-- Injetado via TypeScript -->
         </nav>
       </section>
 
-      <!-- Principles List -->
-      <section id="solid-principles-list" aria-label="Lista de Princípios S.O.L.I.D.">
-        <!-- Injetado via TypeScript -->
-      </section>
-
-      <!-- Interactive Quiz Section -->
-      <section class="solid-quiz-section" id="quiz-section" aria-label="Quiz Interativo para Fixação">
-        <div class="solid-quiz-intro">
-          <div class="solid-quiz-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-            Desafio de Fixação
-          </div>
-          <h2 class="solid-quiz-title">Quiz: Teste seus Conhecimentos em S.O.L.I.D.</h2>
-          <p class="solid-quiz-subtitle">
-            Coloque-se na pele de um desenvolvedor no primeiro emprego! Leia os cenários do mundo real abaixo e descubra qual princípio resolve cada situação.
+      <!-- SEÇÃO 1: O QUE AUDITAR -->
+      <section id="section-o-que-auditar" aria-label="Seção O Que Auditar">
+        <div class="audit-section-header">
+          <span class="audit-section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Seção 1 — O Que Auditar
+          </span>
+          <h2 class="audit-section-title">Prompts Prontos de Inspeção Especializada</h2>
+          <p class="audit-section-subtitle">
+            Cada item abaixo possui um <strong>Prompt completo pronto para copiar</strong> e rodar diretamente na sua ferramenta de IA favorita (ChatGPT, Claude, Cursor, GitHub Copilot). Basta copiar, anexar os arquivos ou métodos correspondentes e auditar.
           </p>
         </div>
 
-        <div class="solid-quiz-container" id="quiz-questions-list">
-          <!-- Perguntas e opções injetadas via TypeScript -->
+        <div class="audit-cards-grid" id="prompts-list">
+          <!-- Cards de prompts injetados via TypeScript -->
+        </div>
+      </section>
+
+      <!-- SEÇÃO 2: COMO AUDITAR -->
+      <section id="section-como-auditar" aria-label="Seção Como Auditar" style="margin-top: 4rem;">
+        <div class="audit-section-header">
+          <span class="audit-section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Seção 2 — Como Auditar
+          </span>
+          <h2 class="audit-section-title">Detalhamento Técnico, Riscos & Padrões Seguros</h2>
+          <p class="audit-section-subtitle">
+            Mergulho aprofundado nos 5 pilares críticos: RBAC, Checklist Estático Mestre, Princípios SOLID, Imutabilidade em Modelos de Domínio e Prevenção de Regressão de Deleção em Cascata.
+          </p>
+        </div>
+
+        <div id="guides-list">
+          <!-- Tópicos técnicos injetados via TypeScript -->
         </div>
       </section>
     </main>
 
+    <!-- Toast Notification -->
+    <div class="audit-toast" id="audit-toast" role="status" aria-live="polite">
+      <!-- Injetado dinamicamente -->
+    </div>
+
     <!-- Footer -->
     <footer class="app-footer">
       <div class="footer-inner">
-        <div><strong>Guia do Programador</strong> — Princípios S.O.L.I.D. Descomplicados</div>
-        <div>Arquitetura limpa, código desacoplado e boas práticas para desenvolvedores.</div>
+        <div><strong>Guia do Programador</strong> — Manual de Auditoria & Engenharia de Software</div>
+        <div>Foco em código auditável, arquitetura limpa, segurança fail-closed e imutabilidade estrita.</div>
         <div class="footer-links">
           <a href="./index.html" class="footer-link">Controles UI/UX</a>
           <span style="opacity: 0.3;">•</span>
@@ -295,6 +276,6 @@
     </button>
 
     <!-- App Entry Point -->
-    <script type="module" src="/src/solid-main.ts"></script>
+    <script type="module" src="/src/auditoria-main.ts"></script>
   </body>
 </html>
