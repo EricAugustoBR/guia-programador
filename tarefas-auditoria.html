@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/styles/main.css" />
-    <link rel="stylesheet" href="/src/styles/auditoria.css" />
+    <link rel="stylesheet" href="/src/styles/tarefas-auditoria.css" />
   </head>
   <body>
     <!-- App Header -->
@@ -100,9 +100,16 @@
             </svg>
             Conjuntos de Componentes
           </a>
-          <a href="./tarefas-auditoria.html" class="nav-page-tab is-active" aria-current="page">
+          <a href="./auditoria.html" class="nav-page-tab">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Auditoria do Sistema
+          </a>
+          <a href="./tarefas-auditoria.html" class="nav-page-tab is-active" aria-current="page">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
             </svg>
             Tarefas de Auditoria
           </a>
@@ -294,6 +301,8 @@
           <span style="opacity: 0.3;">•</span>
           <a href="./bibliotecas.html" class="footer-link">Conjuntos de Componentes</a>
           <span style="opacity: 0.3;">•</span>
+          <a href="./auditoria.html" class="footer-link">Auditoria do Sistema</a>
+          <span style="opacity: 0.3;">•</span>
           <a href="./tarefas-auditoria.html" class="footer-link">Tarefas de Auditoria</a>
           <span style="opacity: 0.3;">•</span>
           <a href="#" class="footer-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Voltar ao Topo</a>
@@ -310,6 +319,6 @@
     </button>
 
     <!-- App Entry Point -->
-    <script type="module" src="/src/auditoria-main.ts"></script>
+    <script type="module" src="/src/tarefas-auditoria-main.ts"></script>
   </body>
 </html>
