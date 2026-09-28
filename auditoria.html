@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guia do Programador — Manual de Auditoria de Sistemas</title>
+    <title>Guia do Programador — Tarefas de Auditoria do Sistema</title>
     <meta
       name="description"
-      content="Guia completo de auditoria de software: O que auditar (8 prompts prontos para IA) e Como auditar (RBAC, qualidade estática, SOLID, imutabilidade DDD, cascata e fluxo reverso)."
+      content="Playbook completo de engenharia e Tarefas de Auditoria de software: Fundamentos da literatura clássica (Fowler, Evans, Uncle Bob, OWASP), as 8 Tarefas de Auditoria com Prompts Especializados, Checklist Técnico Unificado e Guias Aprofundados."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,7 +26,7 @@
           <div>
             <div class="brand-title">Guia do Programador</div>
           </div>
-          <span class="brand-badge">Auditoria</span>
+          <span class="brand-badge">Tarefas de Auditoria</span>
         </a>
 
         <!-- Navegação entre Páginas -->
@@ -104,7 +104,7 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
-            Auditoria do Sistema
+            Tarefas de Auditoria
           </a>
         </nav>
 
@@ -127,14 +127,12 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         </svg>
-        Conformidade, Resiliência & Segurança
+        Playbook de Engenharia & Prompts Especializados
       </div>
 
-      <h1 class="hero-title">Manual de Auditoria do Sistema</h1>
+      <h1 class="hero-title">Tarefas de Auditoria do Sistema</h1>
       <p class="hero-subtitle">
-        Descubra <strong>O Que Auditar</strong> com 8 prompts especializados prontos para copiar e utilizar na sua IA, 
-        e domine <strong>Como Auditar</strong> com regras de ouro para RBAC, checklist estático unificado, princípios SOLID, 
-        imutabilidade em DDD e prevenção de regressão de deleção.
+        Manual rigoroso de conformidade técnica: fundamente-se na <strong>literatura clássica</strong> (Fowler, Evans, Uncle Bob, OWASP), execute as <strong>8 Tarefas de Auditoria</strong> com prompts especializados prontos para copiar na sua IA, utilize o <strong>Checklist Técnico Unificado</strong> por arquivo e domine os padrões seguros de arquitetura e resiliência.
       </p>
     </section>
 
@@ -151,7 +149,7 @@
             <span>Seu Progresso de Auditoria e Conformidade</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <span class="audit-progress-stat" id="progress-stat">0 de 27 verificados (0%)</span>
+            <span class="audit-progress-stat" id="progress-stat">0 de 31 verificados (0%)</span>
             <button
               type="button"
               id="btn-reset-audited"
@@ -186,7 +184,7 @@
             type="search"
             id="search-input"
             class="search-input"
-            placeholder="Pesquisar auditorias (ex: rbac, idor, n+1, cascade, prompt, solid, estorno, imutabilidade)..."
+            placeholder="Pesquisar tarefas, prompts e conceitos (ex: rastreabilidade, agregados, rbac, idor, n+1, cascade, solid)..."
             autocomplete="off"
           />
         </div>
@@ -196,34 +194,70 @@
         </nav>
       </section>
 
-      <!-- SEÇÃO 1: O QUE AUDITAR -->
-      <section id="section-o-que-auditar" aria-label="Seção O Que Auditar">
+      <!-- SEÇÃO 1: FUNDAMENTOS DA LITERATURA CLÁSSICA -->
+      <section id="section-livros" aria-label="O Que os Principais Livros Dizem Sobre Auditoria">
         <div class="audit-section-header">
           <span class="audit-section-tag">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Seção 1 — O Que Auditar
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Fundamentos de Engenharia
           </span>
-          <h2 class="audit-section-title">Prompts Prontos de Inspeção Especializada</h2>
+          <h2 class="audit-section-title">1. O que os Principais Livros Dizem Sobre Auditoria de Aplicações</h2>
           <p class="audit-section-subtitle">
-            Cada item abaixo possui um <strong>Prompt completo pronto para copiar</strong> e rodar diretamente na sua ferramenta de IA favorita (ChatGPT, Claude, Cursor, GitHub Copilot). Basta copiar, anexar os arquivos ou métodos correspondentes e auditar.
+            Diretrizes indispensáveis estabelecidas pelos maiores autores de arquitetura de software, modelagem de domínio, código limpo e segurança corporativa.
           </p>
         </div>
 
-        <div class="audit-cards-grid" id="prompts-list">
-          <!-- Cards de prompts injetados via TypeScript -->
+        <div class="audit-books-grid" id="books-list">
+          <!-- Injetado via TypeScript -->
         </div>
       </section>
 
-      <!-- SEÇÃO 2: COMO AUDITAR -->
-      <section id="section-como-auditar" aria-label="Seção Como Auditar" style="margin-top: 4rem;">
+      <!-- SEÇÃO A: AS 8 TAREFAS DE AUDITORIA (PROMPTS PRONTOS) -->
+      <section id="section-tarefas-auditoria" aria-label="Seção A: O Que Deve Ser Auditado">
+        <div class="audit-section-header">
+          <span class="audit-section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Seção A — O Que Deve Ser Auditado
+          </span>
+          <h2 class="audit-section-title">2. As 8 Tarefas de Auditoria com Prompts Especializados</h2>
+          <p class="audit-section-subtitle">
+            Cada tarefa detalha o <strong>Objetivo</strong>, os <strong>Critérios de Reprovação (Violações)</strong> e o <strong>Prompt Pronto para Copiar</strong> e rodar na sua ferramenta de IA favorita (ChatGPT, Claude, Cursor, Copilot), acompanhado de código demonstrativo e mnemônico.
+          </p>
+        </div>
+
+        <div class="audit-cards-grid" id="tasks-list">
+          <!-- Injetado via TypeScript -->
+        </div>
+      </section>
+
+      <!-- SEÇÃO B: CHECKLIST TÉCNICO UNIFICADO (PROMPT ÚNICO POR ARQUIVO) -->
+      <section id="section-checklist-unificado" aria-label="Seção B: Checklist Técnico Unificado" style="margin-top: 4rem;">
+        <div class="audit-section-header">
+          <span class="audit-section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Seção B — Inspeção Estática por Arquivo
+          </span>
+          <h2 class="audit-section-title">3. Checklist Técnico Unificado (Prompt Único por Arquivo)</h2>
+          <p class="audit-section-subtitle">
+            Avalie simultaneamente os 4 eixos de risco técnico (Null Reference Safety, Armadilhas Assíncronas, Ciclo de Vida de DI e Consultas N+1) colando o arquivo inteiro com este Prompt Mestre.
+          </p>
+        </div>
+
+        <div id="unified-checklist-container">
+          <!-- Injetado via TypeScript -->
+        </div>
+      </section>
+
+      <!-- SEÇÃO C: COMO AUDITAR (DETALHAMENTO TÉCNICO) -->
+      <section id="section-como-auditar" aria-label="Seção C: Como Auditar" style="margin-top: 4rem;">
         <div class="audit-section-header">
           <span class="audit-section-tag">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            Seção 2 — Como Auditar
+            Seção C — Como Auditar
           </span>
-          <h2 class="audit-section-title">Detalhamento Técnico, Riscos & Padrões Seguros</h2>
+          <h2 class="audit-section-title">4. Detalhamento Técnico Aprofundado, Riscos & Padrões Seguros</h2>
           <p class="audit-section-subtitle">
-            Mergulho aprofundado nos 5 pilares críticos: RBAC, Checklist Estático Mestre, Princípios SOLID, Imutabilidade em Modelos de Domínio e Prevenção de Regressão de Deleção em Cascata.
+            Análise minuciosa e exemplos práticos para RBAC, Checklist Estático Mestre, Princípios SOLID, Imutabilidade em Modelos de Domínio e Prevenção de Regressão de Deleção em Cascata.
           </p>
         </div>
 
@@ -241,7 +275,7 @@
     <!-- Footer -->
     <footer class="app-footer">
       <div class="footer-inner">
-        <div><strong>Guia do Programador</strong> — Manual de Auditoria & Engenharia de Software</div>
+        <div><strong>Guia do Programador</strong> — Tarefas de Auditoria do Sistema & Engenharia de Software</div>
         <div>Foco em código auditável, arquitetura limpa, segurança fail-closed e imutabilidade estrita.</div>
         <div class="footer-links">
           <a href="./index.html" class="footer-link">Controles UI/UX</a>
@@ -260,7 +294,7 @@
           <span style="opacity: 0.3;">•</span>
           <a href="./bibliotecas.html" class="footer-link">Conjuntos de Componentes</a>
           <span style="opacity: 0.3;">•</span>
-          <a href="./auditoria.html" class="footer-link">Auditoria do Sistema</a>
+          <a href="./auditoria.html" class="footer-link">Tarefas de Auditoria</a>
           <span style="opacity: 0.3;">•</span>
           <a href="#" class="footer-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Voltar ao Topo</a>
         </div>
