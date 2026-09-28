@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia do Programador — Tarefas de Auditoria do Sistema</title>
+    <meta
+      name="description"
+      content="Playbook completo de engenharia e Tarefas de Auditoria de software: Fundamentos da literatura clássica (Fowler, Evans, Uncle Bob, OWASP), as 8 Tarefas de Auditoria com Prompts Especializados, Checklist Técnico Unificado e Guias Aprofundados."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="./assets/tarefasAuditoria-DNEeFT5z.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/main-CvY94YZ6.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-BTVZp8KM.css">
+    <link rel="stylesheet" crossorigin href="./assets/tarefasAuditoria-BE0IpZco.css">
+  </head>
+  <body>
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="header-inner">
+        <a href="./index.html" class="brand" aria-label="Página Inicial do Guia do Programador">
+          <div class="brand-icon">GP</div>
+          <div>
+            <div class="brand-title">Guia do Programador</div>
+          </div>
+          <span class="brand-badge">Tarefas de Auditoria</span>
+        </a>
+
+        <!-- Navegação entre Páginas -->
+        <nav class="nav-page-tabs" aria-label="Páginas do Guia">
+          <a href="./index.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            Controles UI/UX
+          </a>
+          <a href="./grids-tables.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+            Grids & Tabelas
+          </a>
+          <a href="./anatomia.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Anatomia & Técnicas
+          </a>
+          <a href="./regras.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            Checklist de Regras
+          </a>
+          <a href="./sites.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            Sites de Referência
+          </a>
+          <a href="./solid.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+            Princípios S.O.L.I.D.
+          </a>
+          <a href="./sombras.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2"/>
+              <path d="M12 20v2"/>
+              <path d="m4.93 4.93 1.41 1.41"/>
+              <path d="m17.66 17.66 1.41 1.41"/>
+              <path d="M2 12h2"/>
+              <path d="M20 12h2"/>
+              <path d="m6.34 17.66-1.41 1.41"/>
+              <path d="m19.07 4.93-1.41 1.41"/>
+            </svg>
+            Sombras & Iluminação
+          </a>
+          <a href="./bibliotecas.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+            Conjuntos de Componentes
+          </a>
+          <a href="./auditoria.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Auditoria do Sistema
+          </a>
+          <a href="./tarefas-auditoria.html" class="nav-page-tab is-active" aria-current="page">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            Tarefas de Auditoria
+          </a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            type="button"
+            id="theme-toggle-btn"
+            class="theme-toggle-btn"
+            aria-label="Alternar tema claro ou escuro"
+          >
+            <!-- Injetado via TypeScript -->
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Playbook de Engenharia & Prompts Especializados
+      </div>
+
+      <h1 class="hero-title">Tarefas de Auditoria do Sistema</h1>
+      <p class="hero-subtitle">
+        Manual rigoroso de conformidade técnica: fundamente-se na <strong>literatura clássica</strong> (Fowler, Evans, Uncle Bob, OWASP), execute as <strong>8 Tarefas de Auditoria</strong> com prompts especializados prontos para copiar na sua IA, utilize o <strong>Checklist Técnico Unificado</strong> por arquivo e domine os padrões seguros de arquitetura e resiliência.
+      </p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="audit-container">
+      <!-- Progress Tracking Card -->
+      <section class="audit-progress-card" aria-label="Progresso de Auditoria do Sistema">
+        <div class="audit-progress-header">
+          <div class="audit-progress-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--brand-primary);">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span>Seu Progresso de Auditoria e Conformidade</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span class="audit-progress-stat" id="progress-stat">0 de 31 verificados (0%)</span>
+            <button
+              type="button"
+              id="btn-reset-audited"
+              class="ui-btn ui-btn-ghost"
+              style="font-size: 0.75rem; padding: 0.2rem 0.5rem;"
+              title="Zerar itens auditados"
+            >
+              Zerar
+            </button>
+          </div>
+        </div>
+
+        <div class="audit-progress-bar-bg">
+          <div class="audit-progress-bar-fill" id="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+
+        <div class="audit-celebrate-banner" id="celebrate-banner">
+          🛡️ <strong>Parabéns! Auditoria Completa Concluída!</strong> Sua base de código passou por todos os testes de conformidade, segurança, integridade de dados e boas práticas de arquitetura.
+        </div>
+      </section>
+
+      <!-- Toolbar: Search & Category Pills -->
+      <section class="audit-toolbar" aria-label="Busca e Filtro de Tópicos">
+        <div class="search-wrapper" style="max-width: 100%;">
+          <span class="search-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </span>
+          <input
+            type="search"
+            id="search-input"
+            class="search-input"
+            placeholder="Pesquisar tarefas, prompts e conceitos (ex: rastreabilidade, agregados, rbac, idor, n+1, cascade, solid)..."
+            autocomplete="off"
+          />
+        </div>
+
+        <nav class="audit-pills-nav" id="audit-category-pills" aria-label="Filtro de Categoria">
+          <!-- Injetado via TypeScript -->
+        </nav>
+      </section>
+
+      <!-- SEÇÃO 1: FUNDAMENTOS DA LITERATURA CLÁSSICA -->
+      <section id="section-livros" aria-label="O Que os Principais Livros Dizem Sobre Auditoria">
+        <div class="audit-section-header">
+          <span class="audit-section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Fundamentos de Engenharia
+          </span>
+          <h2 class="audit-section-title">1. O que os Principais Livros Dizem Sobre Auditoria de Aplicações</h2>
+          <p class="audit-section-subtitle">
+            Diretrizes indispensáveis estabelecidas pelos maiores autores de arquitetura de software, modelagem de domínio, código limpo e segurança corporativa.
+          </p>
+        </div>
+
+        <div class="audit-books-grid" id="books-list">
+          <!-- Injetado via TypeScript -->
+        </div>
+      </section>
+
+      <!-- SEÇÃO A: AS 8 TAREFAS DE AUDITORIA (PROMPTS PRONTOS) -->
+      <section id="section-tarefas-auditoria" aria-label="Seção A: O Que Deve Ser Auditado">
+        <div class="audit-section-header">
+          <span class="audit-section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Seção A — O Que Deve Ser Auditado
+          </span>
+          <h2 class="audit-section-title">2. As 8 Tarefas de Auditoria com Prompts Especializados</h2>
+          <p class="audit-section-subtitle">
+            Cada tarefa detalha o <strong>Objetivo</strong>, os <strong>Critérios de Reprovação (Violações)</strong> e o <strong>Prompt Pronto para Copiar</strong> e rodar na sua ferramenta de IA favorita (ChatGPT, Claude, Cursor, Copilot), acompanhado de código demonstrativo e mnemônico.
+          </p>
+        </div>
+
+        <div class="audit-cards-grid" id="tasks-list">
+          <!-- Injetado via TypeScript -->
+        </div>
+      </section>
+
+      <!-- SEÇÃO B: CHECKLIST TÉCNICO UNIFICADO (PROMPT ÚNICO POR ARQUIVO) -->
+      <section id="section-checklist-unificado" aria-label="Seção B: Checklist Técnico Unificado" style="margin-top: 4rem;">
+        <div class="audit-section-header">
+          <span class="audit-section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Seção B — Inspeção Estática por Arquivo
+          </span>
+          <h2 class="audit-section-title">3. Checklist Técnico Unificado (Prompt Único por Arquivo)</h2>
+          <p class="audit-section-subtitle">
+            Avalie simultaneamente os 4 eixos de risco técnico (Null Reference Safety, Armadilhas Assíncronas, Ciclo de Vida de DI e Consultas N+1) colando o arquivo inteiro com este Prompt Mestre.
+          </p>
+        </div>
+
+        <div id="unified-checklist-container">
+          <!-- Injetado via TypeScript -->
+        </div>
+      </section>
+
+      <!-- SEÇÃO C: COMO AUDITAR (DETALHAMENTO TÉCNICO) -->
+      <section id="section-como-auditar" aria-label="Seção C: Como Auditar" style="margin-top: 4rem;">
+        <div class="audit-section-header">
+          <span class="audit-section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Seção C — Como Auditar
+          </span>
+          <h2 class="audit-section-title">4. Detalhamento Técnico Aprofundado, Riscos & Padrões Seguros</h2>
+          <p class="audit-section-subtitle">
+            Análise minuciosa e exemplos práticos para RBAC, Checklist Estático Mestre, Princípios SOLID, Imutabilidade em Modelos de Domínio e Prevenção de Regressão de Deleção em Cascata.
+          </p>
+        </div>
+
+        <div id="guides-list">
+          <!-- Tópicos técnicos injetados via TypeScript -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="audit-toast" id="audit-toast" role="status" aria-live="polite">
+      <!-- Injetado dinamicamente -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <div><strong>Guia do Programador</strong> — Tarefas de Auditoria do Sistema & Engenharia de Software</div>
+        <div>Foco em código auditável, arquitetura limpa, segurança fail-closed e imutabilidade estrita.</div>
+        <div class="footer-links">
+          <a href="./index.html" class="footer-link">Controles UI/UX</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./grids-tables.html" class="footer-link">Grids & Tabelas</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./anatomia.html" class="footer-link">Anatomia & Técnicas</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./regras.html" class="footer-link">Checklist de Regras</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./sites.html" class="footer-link">Sites de Referência</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./solid.html" class="footer-link">Princípios S.O.L.I.D.</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./sombras.html" class="footer-link">Sombras & Iluminação</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./bibliotecas.html" class="footer-link">Conjuntos de Componentes</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./auditoria.html" class="footer-link">Auditoria do Sistema</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./tarefas-auditoria.html" class="footer-link">Tarefas de Auditoria</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="#" class="footer-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Voltar ao Topo</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button type="button" id="back-to-top" class="btn-back-top" title="Voltar ao Topo" aria-label="Voltar ao Topo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="12" y1="19" x2="12" y2="5"/>
+        <polyline points="5 12 12 5 19 12"/>
+      </svg>
+    </button>
+
+    <!-- App Entry Point -->
+  </body>
+</html>
