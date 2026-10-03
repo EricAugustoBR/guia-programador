@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Guia do Programador Favicon">
+  <defs>
+    <linearGradient id="gp-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <filter id="gp-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Fundo com gradiente da marca e cantos arredondados -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#gp-grad)" filter="url(#gp-shadow)" />
+
+  <!-- Borda sutil de brilho interno -->
+  <rect x="3" y="3" width="58" height="58" rx="15" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.3" />
+
+  <!-- Monograma GP perfeitamente centralizado e nítido -->
+  <text
+    x="32"
+    y="33"
+    fill="#ffffff"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, sans-serif"
+    font-size="28"
+    font-weight="800"
+    letter-spacing="-1px"
+    text-anchor="middle"
+    dominant-baseline="central"
+  >GP</text>
+
+  <!-- Indicador verde sutil de status ativo / dev -->
+  <circle cx="49" cy="15" r="4" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+</svg>
