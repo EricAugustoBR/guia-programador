@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia do Programador — Revisão de Segurança Web (AppSec Checklist)</title>
+    <meta
+      name="description"
+      content="Checklist essencial de 24 pontos de segurança web para auditar em todo projeto: API Keys, RLS Postgres, Mass Assignment, SQL Injection, Cookies blindados, HTTPS, Uploads seguros, Minimização de dados, Typosquatting, Criptografia at-rest e auditoria pré-deploy."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/security.css" />
+  </head>
+  <body>
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="header-inner">
+        <a href="./index.html" class="brand" aria-label="Página Inicial do Guia do Programador">
+          <div class="brand-icon">GP</div>
+          <div>
+            <div class="brand-title">Guia do Programador</div>
+          </div>
+          <span class="brand-badge">AppSec & Defesa</span>
+        </a>
+
+        <!-- Navegação entre Páginas -->
+        <nav class="nav-page-tabs" aria-label="Páginas do Guia">
+          <a href="./index.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            Controles UI/UX
+          </a>
+          <a href="./grids-tables.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+            Grids & Tabelas
+          </a>
+          <a href="./anatomia.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Anatomia & Técnicas
+          </a>
+          <a href="./regras.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            Checklist de Regras
+          </a>
+          <a href="./sites.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            Sites de Referência
+          </a>
+          <a href="./solid.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+            Princípios S.O.L.I.D.
+          </a>
+          <a href="./sombras.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2"/>
+              <path d="M12 20v2"/>
+              <path d="m4.93 4.93 1.41 1.41"/>
+              <path d="m17.66 17.66 1.41 1.41"/>
+              <path d="M2 12h2"/>
+              <path d="M20 12h2"/>
+              <path d="m6.34 17.66-1.41 1.41"/>
+              <path d="m19.07 4.93-1.41 1.41"/>
+            </svg>
+            Sombras & Iluminação
+          </a>
+          <a href="./bibliotecas.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+            Conjuntos de Componentes
+          </a>
+          <a href="./auditoria.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Auditoria do Sistema
+          </a>
+          <a href="./tarefas-auditoria.html" class="nav-page-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            Tarefas de Auditoria
+          </a>
+          <a href="./seguranca.html" class="nav-page-tab is-active" aria-current="page">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Revisão de Segurança
+          </a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            type="button"
+            id="theme-toggle-btn"
+            class="theme-toggle-btn"
+            aria-label="Alternar tema claro ou escuro"
+          >
+            <!-- Injetado via TypeScript -->
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-tag" style="border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.1); color: #ef4444;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+        Blindagem de Software Web & OWASP
+      </div>
+
+      <h1 class="hero-title">Checklist de Revisão de Segurança</h1>
+      <p class="hero-subtitle">
+        24 pontos inegociáveis de segurança que precisam ser auditados em <strong>todo projeto web moderno</strong>.
+        Proteja credenciais, blinde o banco de dados contra vazamentos, feche brechas no backend e defenda suas rotas de IA contra abusos.
+      </p>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="security-container">
+      <!-- Progress & Metrics Card -->
+      <section class="security-progress-card" aria-label="Progresso da Auditoria de Segurança">
+        <div class="security-progress-header">
+          <div class="security-progress-title-group">
+            <div class="security-shield-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="security-progress-title">Conformidade de Segurança Web</h2>
+              <div class="security-progress-subtitle" id="security-progress-text">
+                0 de 24 verificações de segurança aprovadas
+              </div>
+            </div>
+          </div>
+
+          <div class="security-progress-actions">
+            <span class="security-stat-badge" id="security-stat-badge">0/24 (0%)</span>
+            <button
+              type="button"
+              id="btn-export-report"
+              class="ui-btn ui-btn-primary"
+              style="font-size: 0.8125rem; padding: 0.35rem 0.75rem;"
+              title="Copiar relatório formatado em Markdown para documentação ou PR"
+            >
+              📋 Copiar Relatório
+            </button>
+            <button
+              type="button"
+              id="btn-check-all-security"
+              class="ui-btn ui-btn-ghost"
+              style="font-size: 0.8125rem; padding: 0.35rem 0.65rem;"
+              title="Marcar todos os 24 itens"
+            >
+              Marcar Todos
+            </button>
+            <button
+              type="button"
+              id="btn-reset-security"
+              class="ui-btn ui-btn-ghost"
+              style="font-size: 0.8125rem; padding: 0.35rem 0.65rem;"
+              title="Desmarcar todas as checagens"
+            >
+              Limpar
+            </button>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="security-progress-bar-bg" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="security-progress-bar-fill" id="security-progress-fill"></div>
+        </div>
+
+        <!-- Breakdown Chips -->
+        <div class="security-breakdown-row">
+          <div class="security-metrics-chips">
+            <span class="metric-chip critica" id="chip-criticas-stat">
+              🚨 Críticas: <strong>0/14</strong>
+            </span>
+            <span class="metric-chip alta" id="chip-altas-stat">
+              ⚠️ Altas: <strong>0/10</strong>
+            </span>
+          </div>
+          <span>Clique no botão <strong>✓</strong> de cada card para marcar o item como auditado.</span>
+        </div>
+
+        <!-- Celebrate Banner -->
+        <div class="celebrate-banner" id="security-celebrate-banner">
+          🛡️ <strong>Parabéns! Auditoria de Segurança Completa!</strong>
+          Todos os 24 pontos essenciais foram verificados. O projeto conta com defesa em profundidade, isolamento de dados e proteção ativa contra abusos!
+        </div>
+      </section>
+
+      <!-- Search, Status & Category Toolbar -->
+      <section class="security-toolbar" aria-label="Filtros da Revisão de Segurança">
+        <div class="security-search-row">
+          <div class="security-search-wrapper">
+            <span class="security-search-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </span>
+            <input
+              type="search"
+              id="security-search-input"
+              class="security-search-input"
+              placeholder="Buscar por termos (ex: service_role, RLS, cookies, rate limit, mass assignment, SQL)..."
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="security-filter-tabs" id="security-filter-tabs">
+            <!-- Tabs de Status Injetadas via TypeScript -->
+          </div>
+        </div>
+
+        <nav class="security-category-pills" id="security-category-pills" aria-label="Categorias de Segurança">
+          <!-- Pills de Categorias Injetadas via TypeScript -->
+        </nav>
+      </section>
+
+      <!-- Rules Cards List -->
+      <section id="security-rules-list" aria-label="Lista dos 24 Pontos de Revisão de Segurança">
+        <!-- Injetado dinamicamente via TypeScript -->
+      </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="security-toast" class="security-toast" role="status" aria-live="polite"></div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-inner">
+        <div><strong>Guia do Programador</strong> — Manual Prático de Engenharia & Revisão de Segurança Web</div>
+        <div>Auditoria preventiva, defesa em camadas, RLS rigoroso e proteção ativa de infraestrutura.</div>
+        <div class="footer-links">
+          <a href="./index.html" class="footer-link">Controles UI/UX</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./grids-tables.html" class="footer-link">Grids & Tabelas</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./anatomia.html" class="footer-link">Anatomia & Técnicas</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./regras.html" class="footer-link">Checklist de Regras</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./sites.html" class="footer-link">Sites de Referência</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./solid.html" class="footer-link">Princípios S.O.L.I.D.</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./sombras.html" class="footer-link">Sombras & Iluminação</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./bibliotecas.html" class="footer-link">Conjuntos de Componentes</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./auditoria.html" class="footer-link">Auditoria do Sistema</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./tarefas-auditoria.html" class="footer-link">Tarefas de Auditoria</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="./seguranca.html" class="footer-link">Revisão de Segurança</a>
+          <span style="opacity: 0.3;">•</span>
+          <a href="#" class="footer-link" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Voltar ao Topo</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button type="button" id="back-to-top" class="btn-back-top" title="Voltar ao Topo" aria-label="Voltar ao Topo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"/>
+        <polyline points="5 12 12 5 19 12"/>
+      </svg>
+    </button>
+
+    <!-- App Entry Point -->
+    <script type="module" src="/src/security-main.ts"></script>
+  </body>
+</html>

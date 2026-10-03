@@ -15,7 +15,8 @@ export default defineConfig({
         sombras: resolve(import.meta.dirname, 'sombras.html'),
         bibliotecas: resolve(import.meta.dirname, 'bibliotecas.html'),
         tarefasAuditoria: resolve(import.meta.dirname, 'tarefas-auditoria.html'),
-        auditoria: resolve(import.meta.dirname, 'auditoria.html')
+        auditoria: resolve(import.meta.dirname, 'auditoria.html'),
+        seguranca: resolve(import.meta.dirname, 'seguranca.html')
       }
     }
   }
