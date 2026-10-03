@@ -30,97 +30,264 @@
           <span class="brand-badge">Tarefas de Auditoria</span>
         </a>
 
-        <!-- Navegação entre Páginas -->
-        <nav class="nav-page-tabs" aria-label="Páginas do Guia">
-          <a href="./index.html" class="nav-page-tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="7" height="7"/>
-              <rect x="14" y="3" width="7" height="7"/>
-              <rect x="14" y="14" width="7" height="7"/>
-              <rect x="3" y="14" width="7" height="7"/>
-            </svg>
-            Controles UI/UX
-          </a>
-          <a href="./grids-tables.html" class="nav-page-tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <line x1="3" y1="12" x2="21" y2="12"/>
-              <line x1="3" y1="18" x2="21" y2="18"/>
-            </svg>
-            Grids & Tabelas
-          </a>
-          <a href="./anatomia.html" class="nav-page-tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-            Anatomia & Técnicas
-          </a>
-          <a href="./regras.html" class="nav-page-tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 11 12 14 22 4"/>
-              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-            </svg>
-            Checklist de Regras
-          </a>
-          <a href="./sites.html" class="nav-page-tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="2" y1="12" x2="22" y2="12"/>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/>
-            </svg>
-            Sites de Referência
-          </a>
-          <a href="./solid.html" class="nav-page-tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-              <polyline points="2 17 12 22 22 17"/>
-              <polyline points="2 12 12 17 22 12"/>
-            </svg>
-            Princípios S.O.L.I.D.
-          </a>
-          <a href="./sombras.html" class="nav-page-tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="4"/>
-              <path d="M12 2v2"/>
-              <path d="M12 20v2"/>
-              <path d="m4.93 4.93 1.41 1.41"/>
-              <path d="m17.66 17.66 1.41 1.41"/>
-              <path d="M2 12h2"/>
-              <path d="M20 12h2"/>
-              <path d="m6.34 17.66-1.41 1.41"/>
-              <path d="m19.07 4.93-1.41 1.41"/>
-            </svg>
-            Sombras & Iluminação
-          </a>
-          <a href="./bibliotecas.html" class="nav-page-tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-              <line x1="12" y1="22.08" x2="12" y2="12"/>
-            </svg>
-            Conjuntos de Componentes
-          </a>
-          <a href="./auditoria.html" class="nav-page-tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            Auditoria do Sistema
-          </a>
-          <a href="./tarefas-auditoria.html" class="nav-page-tab is-active" aria-current="page">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 11 12 14 22 4"/>
-              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-            </svg>
-            Tarefas de Auditoria
-          </a>
-          <a href="./seguranca.html" class="nav-page-tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <path d="m9 12 2 2 4-4"/>
-            </svg>
-            Revisão de Segurança
-          </a>
+        <!-- Navegação entre Páginas com Divisão por Seções -->
+        <!-- Botão Mobile Toggle -->
+        <button type="button" class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Navegação Agrupada em 3 Seções -->
+        <nav class="nav-sections" id="nav-sections" aria-label="Páginas do Guia por Seções">
+          
+          <!-- SEÇÃO 1: INTERFACE & UI -->
+          <div class="nav-section-dropdown" data-section="ui">
+            <button type="button" class="nav-section-trigger" aria-haspopup="true" aria-expanded="false" id="nav-trigger-ui">
+              <span class="nav-section-dot nav-dot-ui"></span>
+              <span>Interface & UI</span>
+              <span class="nav-section-badge">5</span>
+              <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="nav-mega-menu" role="menu" aria-labelledby="nav-trigger-ui">
+              <div class="nav-mega-header">
+                <div class="nav-mega-header-info">
+                  <span class="nav-mega-title">Interface & UI/UX</span>
+                  <span class="nav-mega-desc">— Componentes vivos, CSS moderno e layouts</span>
+                </div>
+                <span class="nav-mega-count">5 guias</span>
+              </div>
+              <div class="nav-mega-grid nav-grid-ui">
+                <a href="./index.html" class="nav-mega-item" role="menuitem">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <rect x="3" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="14" width="7" height="7"></rect>
+                      <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Controles UI/UX
+                    </div>
+                    <div class="nav-mega-item-desc">Botões, inputs, modais e acessibilidade nativa</div>
+                  </div>
+                </a>
+
+                <a href="./grids-tables.html" class="nav-mega-item" role="menuitem">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <line x1="3" y1="6" x2="21" y2="6"></line>
+                      <line x1="3" y1="12" x2="21" y2="12"></line>
+                      <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Grids & Tabelas
+                    </div>
+                    <div class="nav-mega-item-desc">CSS Grid responsivo, flexbox e data-tables</div>
+                  </div>
+                </a>
+
+                <a href="./anatomia.html" class="nav-mega-item" role="menuitem">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Anatomia & Técnicas
+                    </div>
+                    <div class="nav-mega-item-desc">Box model, stacking contexts e renderização</div>
+                  </div>
+                </a>
+
+                <a href="./sombras.html" class="nav-mega-item" role="menuitem">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <circle cx="12" cy="12" r="4"></circle>
+                      <path d="M12 2v2"></path>
+                      <path d="M12 20v2"></path>
+                      <path d="m4.93 4.93 1.41 1.41"></path>
+                      <path d="m17.66 17.66 1.41 1.41"></path>
+                      <path d="M2 12h2"></path>
+                      <path d="M20 12h2"></path>
+                      <path d="m6.34 17.66-1.41 1.41"></path>
+                      <path d="m19.07 4.93-1.41 1.41"></path>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Sombras & Luz
+                    </div>
+                    <div class="nav-mega-item-desc">Elevação, camadas e profundidade visual</div>
+                  </div>
+                </a>
+
+                <a href="./bibliotecas.html" class="nav-mega-item" role="menuitem">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Componentes & Libs
+                    </div>
+                    <div class="nav-mega-item-desc">Catálogo de design systems e ecossistema</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEÇÃO 2: ARQUITETURA & QUALIDADE -->
+          <div class="nav-section-dropdown" data-section="arch">
+            <button type="button" class="nav-section-trigger" aria-haspopup="true" aria-expanded="false" id="nav-trigger-arch">
+              <span class="nav-section-dot nav-dot-arch"></span>
+              <span>Arquitetura & Regras</span>
+              <span class="nav-section-badge">3</span>
+              <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="nav-mega-menu" role="menu" aria-labelledby="nav-trigger-arch">
+              <div class="nav-mega-header">
+                <div class="nav-mega-header-info">
+                  <span class="nav-mega-title">Arquitetura & Qualidade</span>
+                  <span class="nav-mega-desc">— Padrões, princípios S.O.L.I.D. e referências</span>
+                </div>
+                <span class="nav-mega-count">3 guias</span>
+              </div>
+              <div class="nav-mega-grid nav-grid-3">
+                <a href="./solid.html" class="nav-mega-item" role="menuitem">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                      <polyline points="2 17 12 22 22 17"></polyline>
+                      <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Princípios S.O.L.I.D.
+                    </div>
+                    <div class="nav-mega-item-desc">Boas práticas em TypeScript e POO limpa</div>
+                  </div>
+                </a>
+
+                <a href="./regras.html" class="nav-mega-item" role="menuitem">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <polyline points="9 11 12 14 22 4"></polyline>
+                      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Checklist de Regras
+                    </div>
+                    <div class="nav-mega-item-desc">Acessibilidade WCAG, Web Vitals e semântica</div>
+                  </div>
+                </a>
+
+                <a href="./sites.html" class="nav-mega-item" role="menuitem">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Sites de Referência
+                    </div>
+                    <div class="nav-mega-item-desc">Documentações oficiais e portais de referência</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEÇÃO 3: SEGURANÇA & AUDITORIA -->
+          <div class="nav-section-dropdown" data-section="sec">
+            <button type="button" class="nav-section-trigger is-active-section" aria-haspopup="true" aria-expanded="false" id="nav-trigger-sec">
+              <span class="nav-section-dot nav-dot-sec"></span>
+              <span>Segurança & Auditoria</span>
+              <span class="nav-section-badge">3</span>
+              <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="nav-mega-menu" role="menu" aria-labelledby="nav-trigger-sec">
+              <div class="nav-mega-header">
+                <div class="nav-mega-header-info">
+                  <span class="nav-mega-title">Segurança & Auditoria</span>
+                  <span class="nav-mega-desc">— AppSec, OWASP Top 10 e governança técnica</span>
+                </div>
+                <span class="nav-mega-count">3 guias</span>
+              </div>
+              <div class="nav-mega-grid nav-grid-3">
+                <a href="./seguranca.html" class="nav-mega-item" role="menuitem">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Revisão de Segurança
+                    </div>
+                    <div class="nav-mega-item-desc">AppSec, OWASP Top 10, sanitização e CSP</div>
+                  </div>
+                </a>
+
+                <a href="./auditoria.html" class="nav-mega-item" role="menuitem">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Auditoria do Sistema
+                    </div>
+                    <div class="nav-mega-item-desc">Diagnóstico de integridade, stack e arquitetura</div>
+                  </div>
+                </a>
+
+                <a href="./tarefas-auditoria.html" class="nav-mega-item is-current" role="menuitem" aria-current="page">
+                  <div class="nav-mega-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path>
+                      <rect x="9" y="3" width="6" height="4" rx="1"></rect>
+                      <path d="m9 14 2 2 4-4"></path>
+                    </svg>
+                  </div>
+                  <div class="nav-mega-content">
+                    <div class="nav-mega-item-title">
+                      Tarefas de Auditoria
+                      <span class="nav-mega-current-tag">Atual</span>
+                    </div>
+                    <div class="nav-mega-item-desc">Checklist acionável de correções e mitigação</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
         </nav>
 
         <div class="header-actions">

@@ -1,3 +1,4 @@
+import './navigation';
 import { SITES_DATA, SITE_CATEGORIES, SiteCategory, SiteItem } from './data/sites';
 
 class SitesApp {

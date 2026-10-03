@@ -3,6 +3,7 @@
 // Guia do Programador — TypeScript Estrito & Componentes Nativos
 // ============================================================================
 
+import './navigation';
 import {
   AUDIT_CATEGORIES,
   AUDIT_BOOKS_DATA,

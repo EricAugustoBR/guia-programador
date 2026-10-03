@@ -1,3 +1,4 @@
+import './navigation';
 import {
   AUDIT_CATEGORIES,
   AUDIT_PROMPTS_DATA,

@@ -1,3 +1,4 @@
+import './navigation';
 import {
   SOLID_PRINCIPLES_DATA,
   SOLID_QUIZ_DATA,

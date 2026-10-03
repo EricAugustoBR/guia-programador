@@ -1,3 +1,4 @@
+import './navigation';
 import { GRIDS_TABLES_DATA, GRID_TABLE_CATEGORIES } from './data/grids-tables';
 import { GridTableCategory, GridTableItem } from './data/grids-tables';
 

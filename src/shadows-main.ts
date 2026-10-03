@@ -1,3 +1,4 @@
+import './navigation';
 import {
   SHADOWS_DATA,
   SHADOW_CATEGORIES,

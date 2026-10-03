@@ -1,3 +1,4 @@
+import './navigation';
 import {
   LIBRARIES_DATA,
   LIBRARY_CATEGORIES,

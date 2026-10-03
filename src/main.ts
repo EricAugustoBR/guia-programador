@@ -1,3 +1,4 @@
+import './navigation';
 import { CONTROLS_DATA, CATEGORIES } from './data/controls';
 import { ControlCategory, ControlItem } from './types';
 

@@ -1,3 +1,4 @@
+import './navigation';
 import {
   SECURITY_CHECKLIST_DATA,
   SECURITY_CATEGORIES,

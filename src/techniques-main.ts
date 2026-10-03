@@ -1,3 +1,4 @@
+import './navigation';
 import { TECHNIQUES_DATA, TECHNIQUE_CATEGORIES, TechniqueCategory, TechniqueItem } from './data/techniques';
 
 class TechniquesApp {

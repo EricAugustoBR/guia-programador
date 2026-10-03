@@ -1,3 +1,4 @@
+import './navigation';
 import { DEV_RULES_DATA, DevRuleItem } from './data/rules';
 
 class DevRulesApp {
