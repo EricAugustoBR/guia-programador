@@ -1,7 +1,7 @@
 /* ==========================================================================
    NAVIGATION REVAMP — SECTIONS & MEGA-DROPDOWNS
    Desktop: Hover contínuo com ponte invisível (sem gap dead-zone)
-   Mobile: Drawer responsivo com sanfona/accordion, toque confortável e rolagem suave
+   Mobile: Header enxuto (sem quebra de linha) + Drawer sanfona estável
    ========================================================================== */
 
 /* --- Container Principal de Navegação (Desktop) --- */
@@ -53,6 +53,7 @@
   white-space: nowrap;
   user-select: none;
   font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-section-trigger:hover,
@@ -216,6 +217,22 @@
   .nav-section-dropdown:not(:first-child):not(:last-child).is-open .nav-mega-menu {
     transform: translateX(-50%) translateY(0);
   }
+
+  /* Grid de Links no Desktop */
+  .nav-mega-grid {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .nav-mega-grid.nav-grid-ui {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    width: 680px;
+  }
+
+  .nav-mega-grid.nav-grid-3 {
+    grid-template-columns: repeat(3, minmax(210px, 1fr));
+    width: 680px;
+  }
 }
 
 /* Cabeçalho do Mega Dropdown */
@@ -265,22 +282,6 @@
   font-size: 0.6875rem;
   color: var(--text-muted);
   font-family: var(--font-mono);
-}
-
-/* Grid de Links no Desktop */
-.nav-mega-grid {
-  display: grid;
-  gap: 0.6rem;
-}
-
-.nav-mega-grid.nav-grid-ui {
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
-  width: 680px;
-}
-
-.nav-mega-grid.nav-grid-3 {
-  grid-template-columns: repeat(3, minmax(210px, 1fr));
-  width: 680px;
 }
 
 /* Cada Item do Menu */
@@ -457,6 +458,7 @@
   transition: all var(--transition-fast);
   padding: 0;
   flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-mobile-toggle:hover {
@@ -464,7 +466,6 @@
   border-color: var(--brand-primary);
 }
 
-/* Alternância suave entre ícone Hambúrguer e Fechar */
 .nav-mobile-toggle .icon-close {
   display: none;
 }
@@ -477,50 +478,92 @@
   display: block;
 }
 
-/* Trava de rolagem de fundo quando menu mobile aberto */
-body.mobile-nav-active {
-  overflow: hidden;
-}
-
 /* ==========================================================================
    MOBILE MEDIA QUERY (< 992px)
-   Drawer elegante com sanfona/accordion, sem ghosts ou sobreposições
+   Header estável em 1 linha + Drawer suspenso sanfona (100% responsivo)
    ========================================================================== */
 @media (max-width: 991px) {
-  .nav-mobile-toggle {
-    display: inline-flex;
+  /* 1. Header não quebra em linhas */
+  .app-header {
+    padding: 0.6rem 1rem !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 200 !important;
+    backdrop-filter: none !important; /* Elimina o bug de containing-block de fixed/absolute */
+    background: var(--bg-surface) !important;
   }
 
-  /* Gaveta/Drawer que desce abaixo do header */
+  .header-inner {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.5rem !important;
+  }
+
+  .brand {
+    gap: 0.5rem !important;
+    min-width: 0 !important;
+    flex-shrink: 1 !important;
+  }
+
+  .brand-title {
+    font-size: 0.9375rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Oculta badge secundário no mobile para garantir largura livre */
+  .brand-badge {
+    display: none !important;
+  }
+
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .nav-mobile-toggle {
+    display: inline-flex !important;
+  }
+
+  /* 2. Gaveta/Drawer Mobile ancorada diretamente abaixo do header */
   .nav-sections {
-    display: none;
-    position: fixed;
-    top: 57px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--bg-app);
-    border-radius: 0;
-    border: none;
-    border-top: 1px solid var(--border-subtle);
-    padding: 1rem 1rem 3rem;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.65rem;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    z-index: 999;
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-height: calc(85dvh) !important;
+    max-height: calc(85vh) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    background: var(--bg-surface) !important;
+    border-radius: 0 !important;
+    border: none !important;
+    border-top: 1px solid var(--border-medium) !important;
+    border-bottom: 2px solid var(--brand-primary) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+    padding: 0.85rem 1rem 2rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.65rem !important;
+    z-index: 500 !important;
   }
 
   .nav-sections.is-mobile-open {
-    display: flex;
-    animation: fadeInMobile 180ms ease-out forwards;
+    display: flex !important;
+    animation: fadeInMobile 160ms ease-out forwards;
   }
 
   @keyframes fadeInMobile {
     from {
       opacity: 0;
-      transform: translateY(-8px);
+      transform: translateY(-6px);
     }
     to {
       opacity: 1;
@@ -528,56 +571,57 @@ body.mobile-nav-active {
     }
   }
 
+  /* 3. Cards de Seção como Sanfona (Accordion) */
   .nav-section-dropdown {
-    width: 100%;
-    border-radius: var(--radius-xl);
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    overflow: hidden;
+    width: 100% !important;
+    border-radius: var(--radius-lg) !important;
+    background: var(--bg-surface-elevated) !important;
+    border: 1px solid var(--border-subtle) !important;
+    overflow: hidden !important;
   }
 
-  /* Gatilho como barra sanfona touch-friendly */
   .nav-section-trigger {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.85rem 1rem;
-    border-radius: 0;
-    font-size: 0.9375rem;
-    font-weight: 700;
-    background: transparent;
-    border: none;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.85rem 1rem !important;
+    border-radius: 0 !important;
+    font-size: 0.9375rem !important;
+    font-weight: 700 !important;
+    background: transparent !important;
+    border: none !important;
   }
 
   .nav-section-trigger:hover,
   .nav-section-dropdown.is-open .nav-section-trigger {
-    background: var(--bg-surface-elevated);
+    background: var(--bg-surface-hover) !important;
   }
 
-  /* Submenu fecha com display: none para NÃO ocupar espaço estático invisível */
+  /* 4. Submenu só aparece quando a seção está aberta (.is-open) */
   .nav-mega-menu {
     display: none !important;
-    position: static;
+    position: static !important;
     transform: none !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0.75rem;
-    margin: 0;
-    box-shadow: none;
-    background: var(--bg-surface-elevated);
-    border: none;
-    border-top: 1px solid var(--border-subtle);
-    border-radius: 0;
+    padding: 0.5rem 0.75rem 0.75rem !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
+    border-top: 1px solid var(--border-subtle) !important;
+    border-radius: 0 !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
   }
 
-  /* Abre apenas a seção ativa/clicada com animação suave */
   .nav-section-dropdown.is-open .nav-mega-menu {
-    display: block !important;
-    animation: accordionDown 180ms ease-out forwards;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    animation: accordionDown 160ms ease-out forwards;
   }
 
   @keyframes accordionDown {
@@ -592,37 +636,42 @@ body.mobile-nav-active {
   }
 
   .nav-mega-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.2rem !important;
+    padding-bottom: 0.4rem !important;
+    margin-bottom: 0.4rem !important;
   }
 
   .nav-mega-grid,
   .nav-mega-grid.nav-grid-ui,
   .nav-mega-grid.nav-grid-3 {
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
     width: 100% !important;
-    gap: 0.5rem;
+    gap: 0.45rem !important;
   }
 
   .nav-mega-item {
-    padding: 0.75rem;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
+    padding: 0.65rem 0.75rem !important;
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md) !important;
+    min-height: 48px !important;
+    align-items: center !important;
   }
 
-  .nav-mega-item:hover {
-    transform: none;
+  .nav-mega-item:hover,
+  .nav-mega-item:active {
+    background: var(--bg-surface-hover) !important;
+    transform: none !important;
   }
 
   .nav-mega-item-title {
-    font-size: 0.875rem;
+    font-size: 0.8125rem !important;
   }
 
   .nav-mega-item-desc {
-    font-size: 0.75rem;
+    font-size: 0.6875rem !important;
   }
 }

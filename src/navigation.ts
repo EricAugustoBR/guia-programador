@@ -1,7 +1,7 @@
 /**
  * Gerenciador de navegação por seções e mega-dropdowns
  * Suporte a desktop hover com grace-period timer (sem perda de foco em gaps),
- * drawer mobile touch-friendly com sanfona/accordion, e acessibilidade WAI-ARIA.
+ * drawer mobile touch-friendly com sanfona/accordion individual, e acessibilidade WAI-ARIA.
  */
 
 export function initNavigation(): void {
@@ -13,7 +13,7 @@ export function initNavigation(): void {
 
   const isMobile = (): boolean => window.innerWidth < 992;
 
-  // 1. Mobile Menu Toggle (Abrir/Fechar Drawer)
+  // 1. Mobile Menu Toggle (Abrir/Fechar Gaveta)
   if (mobileToggle && navSections) {
     mobileToggle.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -21,22 +21,25 @@ export function initNavigation(): void {
 
       navSections.classList.toggle('is-mobile-open', willOpen);
       mobileToggle.setAttribute('aria-expanded', String(willOpen));
-      document.body.classList.toggle('mobile-nav-active', willOpen);
 
-      // No mobile, se abriu, expande por padrão a seção da página atual
+      // No mobile, se abriu, expande apenas a seção da página atual (accordion)
       if (willOpen && isMobile()) {
         dropdowns.forEach((d) => {
           const hasCurrent = !!d.querySelector('.nav-mega-item.is-current');
+          const trigger = d.querySelector<HTMLButtonElement>('.nav-section-trigger');
           if (hasCurrent) {
             d.classList.add('is-open');
-            d.querySelector<HTMLButtonElement>('.nav-section-trigger')?.setAttribute('aria-expanded', 'true');
+            trigger?.setAttribute('aria-expanded', 'true');
+          } else {
+            d.classList.remove('is-open');
+            trigger?.setAttribute('aria-expanded', 'false');
           }
         });
       }
     });
   }
 
-  // 2. Dropdowns Interativos (Desktop + Mobile)
+  // 2. Dropdowns Interativos (Desktop Hover + Mobile Accordion)
   dropdowns.forEach((dropdown) => {
     const trigger = dropdown.querySelector<HTMLButtonElement>('.nav-section-trigger');
     const menu = dropdown.querySelector<HTMLElement>('.nav-mega-menu');
@@ -49,7 +52,7 @@ export function initNavigation(): void {
 
     if (!trigger || !menu) return;
 
-    // --- COMPORTAMENTO NO DESKTOP: HOVER COM GRACE-PERIOD TIMER ---
+    // --- COMPORTAMENTO NO DESKTOP: HOVER COM TIMER GRACE-PERIOD ---
     dropdown.addEventListener('mouseenter', () => {
       if (isMobile()) return;
 
@@ -58,7 +61,7 @@ export function initNavigation(): void {
         desktopLeaveTimer = null;
       }
 
-      // Fecha outros menus abertos
+      // Fecha outros menus no desktop
       dropdowns.forEach((other) => {
         if (other !== dropdown) {
           other.classList.remove('is-open');
@@ -73,24 +76,28 @@ export function initNavigation(): void {
     dropdown.addEventListener('mouseleave', () => {
       if (isMobile()) return;
 
-      // Grace period de 180ms para permitir travessia suave pelo gap/mouse diagonal
+      // Grace period de 180ms para evitar desaparecimento acidental ao atravessar o gap
       desktopLeaveTimer = window.setTimeout(() => {
         dropdown.classList.remove('is-open');
         trigger.setAttribute('aria-expanded', 'false');
       }, 180);
     });
 
-    // --- COMPORTAMENTO NO CLICK (MOBILE ACCORDION & DESKTOP LOCK) ---
+    // --- COMPORTAMENTO NO CLICK (MOBILE SANFONA / DESKTOP TOGGLE) ---
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       const isCurrentlyOpen = dropdown.classList.contains('is-open');
 
       if (isMobile()) {
-        // Modo Sanfona no Mobile: abre/fecha individualmente
+        // Sanfona no Mobile: apenas uma seção aberta por vez
         if (isCurrentlyOpen) {
           dropdown.classList.remove('is-open');
           trigger.setAttribute('aria-expanded', 'false');
         } else {
+          dropdowns.forEach((other) => {
+            other.classList.remove('is-open');
+            other.querySelector<HTMLButtonElement>('.nav-section-trigger')?.setAttribute('aria-expanded', 'false');
+          });
           dropdown.classList.add('is-open');
           trigger.setAttribute('aria-expanded', 'true');
         }
@@ -122,7 +129,17 @@ export function initNavigation(): void {
     });
   });
 
-  // 3. Fechar ao clicar fora (ou fechar drawer mobile)
+  // 3. Fechar gaveta ao clicar em um link interno
+  document.querySelectorAll<HTMLAnchorElement>('.nav-mega-item').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (isMobile() && navSections && mobileToggle) {
+        navSections.classList.remove('is-mobile-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // 4. Fechar ao clicar fora
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement | null;
     if (!target) return;
@@ -137,14 +154,12 @@ export function initNavigation(): void {
     if (mobileToggle && navSections && !target.closest('.app-header')) {
       navSections.classList.remove('is-mobile-open');
       mobileToggle.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('mobile-nav-active');
     }
   });
 
-  // 4. Ao redimensionar janela para Desktop, remove trava mobile
+  // 5. Ao redimensionar para Desktop, limpa estado mobile
   window.addEventListener('resize', () => {
     if (!isMobile()) {
-      document.body.classList.remove('mobile-nav-active');
       if (navSections) navSections.classList.remove('is-mobile-open');
       if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
     }
